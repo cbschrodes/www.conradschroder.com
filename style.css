@@ -1,0 +1,260 @@
+/* 1. SETUP */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #111111;
+    --accent-color: #0044cc; /* deeply saturated academic blue */
+    --border-color: #000000;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    /* System fonts for a "native" feel, or "Times New Roman" for academic vibes */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* 2. LAYOUT */
+.container {
+    max-width: 700px; /* Narrower width mimics a paper/document */
+    margin: 0 auto;
+}
+
+/* 3. TYPOGRAPHY - Stark and Bold */
+h1, h2, h3 {
+    font-weight: 700;
+    color: #000;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px; /* Tighter tracking looks sharper */
+}
+
+h2 {
+    border-bottom: 3px solid black; /* Thick, heavy underline */
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+/* 4. NAVIGATION - Simple text links */
+nav {
+    margin-bottom: 60px;
+    font-family: monospace; /* Code font for nav looks cool */
+    font-size: 1.1rem;
+}
+
+nav a {
+    color: #666;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+nav a:hover, nav a.active {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* 5. CARDS - No shadows, just outlines */
+.card {
+    border: 2px solid black;
+    padding: 20px;
+    margin-bottom: 30px;
+    background: #fff;
+    border-radius: 0;
+}
+
+/* 6. LINKS */
+a {
+    color: var(--accent-color);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+}
+
+/* 7. BIO SECTION */
+.bio-section {
+    display: flex;          /* This puts the two main columns in a row */
+    align-items: flex-start;
+    gap: 40px;              /* Space between the columns */
+    margin-bottom: 50px;
+}
+
+/* 1. LEFT COLUMN: The Master Controller */
+.left-column {
+    /* This width now controls BOTH the image and the card */
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;         /* Prevents it from getting squished */
+    gap: 40px;                 /* Removes space between photo and card so they look connected */
+}
+
+/* 2. PROFILE PIC: Fills the column */
+.profile-pic {
+    width: 100%;            /* Fills the 240px completely */
+    height: 240px;          /* Matches width to keep it a perfect square */
+    object-fit: cover;      /* Crops image nicely if it wasn't square originally */
+    border-bottom: none;    /* OPTIONAL: Removes bottom border so it merges with card */
+    display: block;
+}
+
+/* 3. CONTACT CARD: Fills the column */
+.contact-card {
+    width: 100%;            /* Fills the 240px completely */
+    border: 2px solid black; /* Matches the image border thickness */
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 0.85rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+/* 4. EMAIL TEXT */
+.contact-card p {
+    word-break: break-all;  /* Safety net if email is still wider than 240px */
+    margin: 5px 0;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .bio-section {
+        flex-direction: column;
+    }
+}
+
+/* SLIDESHOW STYLES */
+.slideshow-container {
+  max-width: 500px;
+  
+  /* 1. FIX THE FOOTPRINT: Set a specific height.
+     Adjust '350px' up or down to match your first photo exactly. */
+  height: 350px;
+  
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+  /* Optional: Background color for the empty space around vertical photos */
+  background-color: transparent;
+}
+
+/* Make sure the slide div fills that fixed footprint */
+.mySlides {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+/* 2. STOP THE CROPPING: The image will resize itself to fit inside the box */
+.mySlides img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* <--- This is the magic rule. It means "fit inside, do not cut". */
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white; /* You might want to change this to 'black' if your background is light */
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* Hide the images by default (JS will show them) */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0,0,0,0.3); /* Semi-transparent black background */
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background with a little transparency */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+strong {
+    font-weight: normal;
+}
+
+contact-card p {
+    word-break: break-all; /* Forces long emails to wrap to the next line */
+    font-size: 0.75rem;    /* Keeps text small enough to fit nicely */
+    line-height: 1.4;
+}
+
+.contact-card h3 {
+    margin-top: 0;
+    font-size: 1rem;       /* Keeps the header from being too huge */
+}
+
+.main-header {
+    text-align: center; /* This centers everything inside the header */
+}
