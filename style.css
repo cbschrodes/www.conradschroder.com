@@ -258,3 +258,8 @@ contact-card p {
 .main-header {
     text-align: center; /* This centers everything inside the header */
 }
+.my-video {
+  width: 100%;       /* Tries to fill the container */
+  max-width: 600px;  /* But stops growing at 600px */
+  height: auto;      /* Keeps the aspect ratio correct */
+}
