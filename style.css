@@ -1,47 +1,43 @@
-/* 1. SETUP */
 :root {
     --bg-color: #ffffff;
     --text-color: #111111;
-    --accent-color: #0044cc; /* deeply saturated academic blue */
+    --accent-color: #0044cc; 
     --border-color: #000000;
 }
 
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    /* System fonts for a "native" feel, or "Times New Roman" for academic vibes */
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 1.5;
     margin: 0;
     padding: 40px 20px;
 }
 
-/* 2. LAYOUT */
 .container {
-    max-width: 700px; /* Narrower width mimics a paper/document */
+    max-width: 700px;
     margin: 0 auto;
 }
 
-/* 3. TYPOGRAPHY - Stark and Bold */
+
 h1, h2, h3 {
     font-weight: 700;
     color: #000;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    letter-spacing: -0.5px; /* Tighter tracking looks sharper */
+    letter-spacing: -0.5px; 
 }
 
 h2 {
-    border-bottom: 3px solid black; /* Thick, heavy underline */
+    border-bottom: 3px solid black; 
     padding-bottom: 10px;
     text-transform: uppercase;
     font-size: 1.2rem;
 }
 
-/* 4. NAVIGATION - Simple text links */
 nav {
     margin-bottom: 60px;
-    font-family: monospace; /* Code font for nav looks cool */
+    font-family: monospace; 
     font-size: 1.1rem;
 }
 
@@ -56,7 +52,6 @@ nav a:hover, nav a.active {
     text-decoration: underline;
 }
 
-/* 5. CARDS - No shadows, just outlines */
 .card {
     border: 2px solid black;
     padding: 20px;
@@ -65,7 +60,6 @@ nav a:hover, nav a.active {
     border-radius: 0;
 }
 
-/* 6. LINKS */
 a {
     color: var(--accent-color);
     text-decoration: underline;
@@ -79,37 +73,33 @@ a:hover {
     text-decoration: none;
 }
 
-/* 7. BIO SECTION */
 .bio-section {
-    display: flex;          /* This puts the two main columns in a row */
+    display: flex;          
     align-items: flex-start;
-    gap: 40px;              /* Space between the columns */
+    gap: 40px;              
     margin-bottom: 50px;
 }
 
-/* 1. LEFT COLUMN: The Master Controller */
 .left-column {
-    /* This width now controls BOTH the image and the card */
     width: 240px;
     display: flex;
     flex-direction: column;
-    flex-shrink: 0;         /* Prevents it from getting squished */
-    gap: 40px;                 /* Removes space between photo and card so they look connected */
+    flex-shrink: 0;        
+    gap: 40px;                
 }
 
-/* 2. PROFILE PIC: Fills the column */
 .profile-pic {
-    width: 100%;            /* Fills the 240px completely */
-    height: 240px;          /* Matches width to keep it a perfect square */
-    object-fit: cover;      /* Crops image nicely if it wasn't square originally */
-    border-bottom: none;    /* OPTIONAL: Removes bottom border so it merges with card */
+    width: 100%;           
+    height: 240px;         
+    object-fit: cover;     
+    border-bottom: none;    
     display: block;
 }
 
-/* 3. CONTACT CARD: Fills the column */
+
 .contact-card {
-    width: 100%;            /* Fills the 240px completely */
-    border: 2px solid black; /* Matches the image border thickness */
+    width: 100%;           
+    border: 2px solid black; 
     padding: 15px;
     box-sizing: border-box;
     font-size: 0.85rem;
@@ -117,49 +107,44 @@ a:hover {
     background-color: #fff;
 }
 
-/* 4. EMAIL TEXT */
 .contact-card p {
-    word-break: break-all;  /* Safety net if email is still wider than 240px */
+    word-break: break-all;  
     margin: 5px 0;
 }
 
-/* MOBILE */
 @media (max-width: 600px) {
     .bio-section {
         flex-direction: column;
     }
 }
 
-/* SLIDESHOW STYLES */
 .slideshow-container {
   max-width: 500px;
   
-  /* 1. FIX THE FOOTPRINT: Set a specific height.
-     Adjust '350px' up or down to match your first photo exactly. */
+
   height: 350px;
   
   position: relative;
   margin: auto;
   margin-top: 20px;
-  /* Optional: Background color for the empty space around vertical photos */
+
   background-color: transparent;
 }
 
-/* Make sure the slide div fills that fixed footprint */
+
 .mySlides {
   display: none;
   height: 100%;
   width: 100%;
 }
 
-/* 2. STOP THE CROPPING: The image will resize itself to fit inside the box */
+
 .mySlides img {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* <--- This is the magic rule. It means "fit inside, do not cut". */
+  object-fit: contain; 
 }
 
-/* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -167,7 +152,7 @@ a:hover {
   width: auto;
   margin-top: -22px;
   padding: 16px;
-  color: white; /* You might want to change this to 'black' if your background is light */
+  color: white; 
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
@@ -185,7 +170,6 @@ a:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
-/* Fading animation */
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -196,12 +180,10 @@ a:hover {
   to {opacity: 1}
 }
 
-/* Hide the images by default (JS will show them) */
 .mySlides {
   display: none;
 }
 
-/* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -215,21 +197,19 @@ a:hover {
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  background-color: rgba(0,0,0,0.3); /* Semi-transparent black background */
+  background-color: rgba(0,0,0,0.3); 
 }
 
-/* Position the "next button" to the right */
 .next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-/* On hover, add a black background with a little transparency */
+
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
 
-/* Fading animation */
 .fade {
   animation-name: fade;
   animation-duration: 1.5s;
@@ -245,72 +225,71 @@ strong {
 }
 
 contact-card p {
-    word-break: break-all; /* Forces long emails to wrap to the next line */
-    font-size: 0.75rem;    /* Keeps text small enough to fit nicely */
+    word-break: break-all; 
+    font-size: 0.75rem;    
     line-height: 1.4;
 }
 
 .contact-card h3 {
     margin-top: 0;
-    font-size: 1rem;       /* Keeps the header from being too huge */
+    font-size: 1rem;       
 }
 
 .main-header {
-    text-align: center; /* This centers everything inside the header */
+    text-align: center; 
 }
 .my-video {
-  width: 100%;       /* Tries to fill the container */
-  max-width: 600px;  /* But stops growing at 600px */
-  height: auto;      /* Keeps the aspect ratio correct */
+  width: 100%;       
+  max-width: 600px;  
+  height: auto;      
 }
-/* Remove bullet points and extra spacing */
 #playlist {
     list-style: none;
     padding: 0;
     margin-top: 20px;
-    border-top: 1px solid #eee; /* Adds a nice divider line */
+    border-top: 1px solid #eee;
 }
 
-/* Individual track container */
+/* 2. The Individual Rows */
 #playlist li {
-    border-bottom: 1px solid #eee; /* Separator lines between tracks */
+    border-bottom: 1px solid #eee;
     transition: background 0.2s ease;
 }
 
-/* The actual link/button */
+/* 3. Hover Effect - Clean & Subtle */
+#playlist li:hover {
+    background-color: #f4f4f4;
+}
+
+/* 4. The Links (The clickable area) */
 #playlist li a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Keeps icon and text together */
     padding: 12px 15px;
     text-decoration: none;
     color: #333;
     font-weight: 500;
     font-family: 'Segoe UI', Roboto, sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-/* Hover effect - makes it feel interactive */
-#playlist li:hover {
-    background-color: #f4f4f4;
-    cursor: pointer;
-}
-
-/* Active state - when a track is playing (optional enhancement) */
 #playlist li a:active {
-    background-color: #e0e0e0;
+    background-color: #708090;
+    color: white !important;
 }
 
-/* Add a "Play" icon using a CSS pseudo-element */
-#playlist li a::before {
-    content: '▶';
-    font-size: 0.8rem;
-    margin-right: 15px;
-    color: #666;
-    opacity: 0.5;
+.play-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    fill: #666; 
+    transition: fill 0.2s ease;
 }
 
-/* Remove the underline on hover for a cleaner look */
-#playlist li a:hover {
-    color: #000;
+#playlist li:hover .play-icon {
+    fill: #708090;
+}
+
+#playlist li a:active .play-icon {
+    fill: white;
 }
